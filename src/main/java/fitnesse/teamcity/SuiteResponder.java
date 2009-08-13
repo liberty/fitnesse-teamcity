@@ -1,4 +1,4 @@
-package com.sabre.liberty.fitnesse.plugin.teamcity;
+package fitnesse.teamcity;
 
 public class SuiteResponder extends fitnesse.responders.run.SuiteResponder {
    public SuiteResponder() {

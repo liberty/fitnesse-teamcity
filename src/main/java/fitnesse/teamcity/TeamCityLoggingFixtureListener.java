@@ -1,4 +1,4 @@
-package com.sabre.liberty.fitnesse.plugin.teamcity;
+package fitnesse.teamcity;
 
 import fitnesse.responders.run.CompositeExecutionLog;
 import fitnesse.responders.run.TestSummary;
