@@ -7,7 +7,7 @@
       <version>20090627</version>
    </parent>
    <groupId>${parent.groupId}</groupId>
-   <artifactId>teamcity</artifactId>
+   <artifactId>liberty-teamcity</artifactId>
    <version>${parent.version}</version>
    <dependencies>
       <dependency>
