@@ -31,12 +31,14 @@ public class TeamCityLoggingFixtureListener extends BaseFormatter {
    }
 
    public void testComplete(WikiPage test, TestSummary testSummary) throws Exception {
+      if (testSummary.getExceptions() > 0 || testSummary.getWrong() > 0) {
+         logTestFailed();
+         ++failedTests;
+      }
       logTestFinished();
    }
 
    public void errorOccured() {
-      logTestFailed();
-      ++failedTests;
    }
 
    public void writeHead(String pageType) throws Exception {
