@@ -3,7 +3,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.fitnesse</groupId>
    <artifactId>fitnesse-teamcity</artifactId>
-   <version>20090709-SNAPSHOT</version>
+   <version>20090709-1.1</version>
    <name>fitnesse-teamcity</name>
    <properties>
       <jdk.version>1.6</jdk.version>
