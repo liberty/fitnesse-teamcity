@@ -12,6 +12,7 @@ public class TeamCityLoggingFixtureListener extends BaseFormatter {
   private String currentTestName;
   private int failedTests;
   private int totalTests;
+  private boolean testFailed;
   private StringBuilder testOutputBuffer = new StringBuilder();
 
   public void setExecutionLogAndTrackingId(String stopResponderId, CompositeExecutionLog log) throws Exception {
@@ -27,6 +28,7 @@ public class TeamCityLoggingFixtureListener extends BaseFormatter {
     currentTestName = test.getPageCrawler().getFullPath(test).toString();
     logTestStarted();
     ++totalTests;
+    testFailed = false;
   }
 
   public void testOutputChunk(String output) throws Exception {
@@ -38,6 +40,7 @@ public class TeamCityLoggingFixtureListener extends BaseFormatter {
     if (testSummary.getExceptions() > 0 || testSummary.getWrong() > 0) {
       logTestFailed();
       ++failedTests;
+      testFailed = true;
     }
     logTestFinished();
     testOutputBuffer = new StringBuilder();
@@ -58,11 +61,13 @@ public class TeamCityLoggingFixtureListener extends BaseFormatter {
 
   private void logTestFinished() {
     logTeamcityMessage("testFinished name='%s'");
-    logTeamcityMessage(String.format("buildStatus status='%s' text='{build.status.text}; %s'", getStatus(), getStatusText()));
-  }
-
-  private String getStatus() {
-    return (failedTests > 0) ? "FAILURE" : "SUCCESS";
+    if (testFailed) {
+      logTeamcityMessage(String.format("buildProblem description='%s' identity='%s'", getStatusText(), currentTestName));
+      logTeamcityMessage(String.format("buildStatus text='{build.status.text}; %s'", getStatusText()));
+    }
+    else {
+      logTeamcityMessage(String.format("buildStatus text='{build.status.text}; %s'", getStatusText()));
+    }
   }
 
   private String getStatusText() {
