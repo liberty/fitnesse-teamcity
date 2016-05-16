@@ -3,7 +3,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>org.fitnesse</groupId>
    <artifactId>fitnesse-teamcity</artifactId>
-   <version>20090709-1.1</version>
+   <version>20090709-1.2-SNAPSHOT</version>
    <name>fitnesse-teamcity</name>
    <properties>
       <jdk.version>1.6</jdk.version>
@@ -14,12 +14,12 @@
       <dependency>
          <groupId>org.fitnesse</groupId>
          <artifactId>fitnesse</artifactId>
-         <version>${project.version}</version>
+         <version>20090709-1.0-liberty</version>
       </dependency>
       <dependency>
          <groupId>org.testng</groupId>
          <artifactId>testng</artifactId>
-         <version>5.9</version>
+         <version>6.0</version>
          <scope>test</scope>
       </dependency>
    </dependencies>
