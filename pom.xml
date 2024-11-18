@@ -14,7 +14,7 @@
       <dependency>
          <groupId>org.fitnesse</groupId>
          <artifactId>fitnesse</artifactId>
-         <version>20090709-1.0-liberty</version>
+         <version>20241026</version>
       </dependency>
       <dependency>
          <groupId>org.testng</groupId>
